@@ -11,7 +11,13 @@ def run():
     # Build list of stations and distances from coordinate
     station_name_distance = geo.stations_by_distance(stations, (52.2053,0.1218))
 
-    print(station_name_distance)
+    for s, d in station_name_distance[:10]:
+        print(s.name, s.town, d)
+
+    print()
+
+    for s, d in station_name_distance[-10:]:
+        print(s.name, s.town, d)
 
 
 
@@ -22,5 +28,5 @@ if __name__ == "__main__":
     run()
 
 
-geo.stations_by_distance(build_station_list(), (52.2053,0.1218))
-print(stations_by_distance(build_station_list(),(52.2053,0.1218)))
+#geo.stations_by_distance(build_station_list(), (52.2053,0.1218))
+#print(stations_by_distance(build_station_list(),(52.2053,0.1218)))
