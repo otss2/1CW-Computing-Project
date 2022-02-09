@@ -61,6 +61,6 @@ def rivers_by_station_number(stations, N):
     for river, stats in station_rivers.items():
         out.append((river, len(stats)))
     out.sort(key=lambda x: x[1], reverse=True)
-    cutoff = out[N][1]
+    cutoff = out[N - 1][1]
     out = [o for o in out if o[1] >= cutoff]
     return out
