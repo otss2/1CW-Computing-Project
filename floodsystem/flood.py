@@ -5,16 +5,17 @@ from .station import MonitoringStation
 #Task 2B
 def stations_level_over_threshold(stations, tol):
     list = []
-    for i in stations:
-        if stations.relative_water_level() is None:
+    for station in stations:
+        if station.relative_water_level() is None:
             continue
-        elif stations.typical_range[1] > stations.typical_range[0]:
-            if stations.latest_level > tol:
-                list.append(stations.station_id, stations.relative_water_level())
-            else:
+        elif station.typical_range[1] > station.typical_range[0]:
+            if station.relative_water_level() > tol:
+                list.append((station.name, station.relative_water_level()))
+            else: 
                 continue
-        elif stations.typical_range[1] < stations.typical_range[0]:
+        elif station.typical_range[1] < station.typical_range[0]:
             continue
+    list = sorted(list, key=lambda x: x[1], reverse=True)
     return list
     
 

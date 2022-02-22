@@ -6,7 +6,6 @@ for manipulating/modifying station data
 
 """
 
-
 class MonitoringStation:
     """This class represents a river level monitoring station"""
 
@@ -47,9 +46,11 @@ class MonitoringStation:
 
     # Task 2B
     def relative_water_level(self):
+        if self.latest_level is None:
+            return None
         if self.typical_range is None:
             return None
-        if self.latest_level is None:
+        if self.typical_range[0] > self.typical_range[1]:
             return None
         if self.typical_range[1] > self.typical_range[0]:
             ratio = (self.latest_level - self.typical_range[0])/(self.typical_range[1]-self.typical_range[0])
