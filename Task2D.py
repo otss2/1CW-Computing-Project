@@ -38,7 +38,7 @@ def run():
     #     return
 
     # Fetch data over past 2 days
-    dt = 2
+    dt = 5
     dates, levels = fetch_measure_levels(
         station_cam.measure_id, dt=datetime.timedelta(days=dt))
 

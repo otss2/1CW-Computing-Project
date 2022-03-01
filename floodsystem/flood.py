@@ -10,7 +10,7 @@ def stations_level_over_threshold(stations, tol):
             continue
         elif station.typical_range[1] > station.typical_range[0]:
             if station.relative_water_level() > tol:
-                list.append((station.name, station.relative_water_level()))
+                list.append((station, station.relative_water_level()))
             else: 
                 continue
         elif station.typical_range[1] < station.typical_range[0]:
@@ -21,16 +21,17 @@ def stations_level_over_threshold(stations, tol):
 
 #Task 2C
 def stations_highest_rel_level(stations, N):
-    list = []
+    mylist = []
     for station in stations:
         if station.relative_water_level() is None:
             continue
         elif station.typical_range[1] < station.typical_range[0]:
             continue
         elif station.typical_range[1] > station.typical_range[0]:
-            list.append((station.name, station.relative_water_level()))
-    list = sorted(list, key=lambda x: x[1], reverse=True)[:N]
-    return list
+            mylist.append((station, station.relative_water_level()))
+    mylist = sorted(mylist, key=lambda x: x[1], reverse=True)[:N]
+    mylist = [x[0] for x in mylist]
+    return mylist
 
 
 

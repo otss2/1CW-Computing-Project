@@ -121,7 +121,8 @@ def fetch_measure_levels(measure_id, dt):
 
     # Construct URL for fetching data
     url_base = measure_id
-    url_options = "/readings/?_sorted&since=" + start.isoformat() + 'Z'
+    #url_options = "/readings/?_sorted&since=" + start.isoformat() + 'Z'
+    url_options = "/readings?_sorted&since=" + start.isoformat().split(".")[0] + 'Z'
     url = url_base + url_options
 
     # Fetch data
@@ -135,6 +136,12 @@ def fetch_measure_levels(measure_id, dt):
 
         # Append data
         dates.append(d)
-        levels.append(measure['value'])
+        try:
+            v = measure['value']
+            if type(v) == type(list()):
+                v = v[0]
+        except:
+            v = levels[-1]
+        levels.append(v)
 
     return dates, levels

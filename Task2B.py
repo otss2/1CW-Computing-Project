@@ -13,7 +13,7 @@ def run():
     tol = 0.8
     list = stations_level_over_threshold(stations, tol)
     for s in list:
-        print(s[0], s[1])
+        print(s[0].name, s[1])
 
     # over_threshold = flood.stations_level_over_threshold(stations, 0.8)
     
