@@ -122,7 +122,9 @@ def fetch_measure_levels(measure_id, dt):
     # Construct URL for fetching data
     url_base = measure_id
     #url_options = "/readings/?_sorted&since=" + start.isoformat() + 'Z'
+    #print(url_base + url_options)
     url_options = "/readings?_sorted&since=" + start.isoformat().split(".")[0] + 'Z'
+    #print(url_base + url_options)
     url = url_base + url_options
 
     # Fetch data
