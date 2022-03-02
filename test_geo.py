@@ -5,6 +5,7 @@
 
 from floodsystem.geo import *
 from floodsystem.station import MonitoringStation
+from floodsystem.stationdata import *
 
 def get_test_stations():
     s1 = MonitoringStation("a", "1", "x", (13, 0), (2, 1), "r1", "t1") #inconsistent range
